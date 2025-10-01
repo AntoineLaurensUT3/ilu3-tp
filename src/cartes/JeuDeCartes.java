@@ -2,10 +2,15 @@ package cartes;
 
 public class JeuDeCartes {
 	
-	private Configuration[] typeDeCartes = new Configuration[19];
+	private Configuration[] typeDeCartes = {new Configuration(new Borne(25),10),new Configuration(new Borne(50),10),new Configuration(new Borne(75),10),
+			new Configuration(new Borne(100),12),new Configuration(new Borne(200),4), new Configuration(new Parade(Type.FEU),14), new Configuration(new Parade(Type.CREVAISON),6),
+			new Configuration(new Parade(Type.ESSENCE),6),new Configuration(new Parade(Type.ACCIDENT),6), new Configuration(new DebutLimite(),4), new Configuration(new FinLimite(),4),
+			new Configuration(new Attaque(Type.FEU),5),new Configuration(new Attaque(Type.CREVAISON),3),new Configuration(new Attaque(Type.ESSENCE),3), new Configuration(new Attaque(Type.ACCIDENT),3),
+			new Configuration(new Botte(Type.FEU),1),new Configuration(new Botte(Type.ACCIDENT),1),new Configuration(new Botte(Type.ESSENCE),1),new Configuration(new Botte(Type.ACCIDENT),1)
+			};
 	
 	public JeuDeCartes() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	
@@ -19,18 +24,29 @@ public class JeuDeCartes {
 	}
 	
 	public Carte[] donnerCartes() {
-		Carte[] Tab = new Carte[110]; 
+		Carte[] tab = new Carte[typeDeCartes.length]; 
 		int x = 0;
 		for(int i=0; i< typeDeCartes.length; i++) {
 			for(int y=0; y < typeDeCartes[i].getNbExemplaires();y++) {
 				Carte carte = typeDeCartes[i].getCarte();
-				Tab[x] = carte;
+				tab[x] = carte;
 				x++;
 			}
 		}
-		return Tab;
+		return tab;
 	}
-		
+	
+	public boolean checkCount() {
+		Carte[] tab = donnerCartes();
+		for(int i =0;i<tab.length;i++) {
+			for(int j=0;j<typeDeCartes.length;j++) {
+				if (tab[i].equals(typeDeCartes[j].getCarte())) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 	
 	private class Configuration {
 		private int nbExemplaires;

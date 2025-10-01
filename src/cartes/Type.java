@@ -7,9 +7,9 @@ public enum Type {
 	private String attaque;
 	private String botte;
 	Type(String string, String string2, String string3) {
-		string = botte;
-		string2 = attaque;
-		string3 = parade;
+		botte=string;
+		attaque=string2;
+		parade=string3;
 	}
 	public String getParade() {
 		return parade;

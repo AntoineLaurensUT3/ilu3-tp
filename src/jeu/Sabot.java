@@ -1,27 +1,29 @@
 package jeu;
-
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import cartes.Carte;
 
 public class Sabot implements Iterable<Carte> {
 	private Carte[] cartes;
-	private int nbCartes = 110;
+	private int nbCartes = 0;
 	private int nbOperations = 0;
 	
-	public Sabot() {
+	public Sabot(Carte[] tab) {
 		
-		cartes = new Carte[nbCartes];
+		cartes = tab;
+		nbCartes = tab.length;
 	}
 	
 	public boolean estVide() {
-		if (cartes.length==0) {
-			return true;
-		}
-		return false;
+		return cartes.length==0;
+			
+		
 	}
 	
 	
 	public void ajouterCarte(Carte carte) {
-		if(nbCartes < 110) {
+		if(nbCartes < cartes.length) {
 			cartes[nbCartes-1]=carte;
 			nbOperations++;
 		}
@@ -32,13 +34,13 @@ public class Sabot implements Iterable<Carte> {
 	
 	
 	public Carte piocher() {
-		if(!estVide()) {
-			for(Iterator<Carte> i = cartes.iterator();i.hasNext()) {
-				Carte carte= i.next();
+			Iterator<Carte> i = iterator(); 
+			if(i.hasNext()) {
+				Carte c= i.next();
 				i.remove();
-				return carte;
+				return c;
 			}
-		}
+			return null;
 	}
 	
 	public Iterator<Carte> iterator(){
