@@ -1,2 +1,3 @@
 module info {
+	requires rt;
 }
