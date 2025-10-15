@@ -17,7 +17,7 @@ public class Jeu {
 		Collections.addAll(listeCartes, jeu);
 		GestionCartes melangeCartes = new GestionCartes();
 		listeCartes = melangeCartes.melanger(listeCartes);
-		sabot = new Sabot(listeCartes.toArray());
+		sabot = new Sabot(listeCartes.toArray(jeu));
 	}
 
 }

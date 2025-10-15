@@ -14,9 +14,9 @@ public class GestionCartes {
 	public GestionCartes() {
 		// TODO Auto-generated constructor stub
 	}
-
+	private static Random randomNumbers = new Random();
+	
 	public static <E> ArrayList<E> extraire(ArrayList<E> l) {
-		Random randomNumbers = new Random();
 		int randomNum = randomNumbers.nextInt(l.size());
 		l.remove(randomNum);
 		return l;
@@ -30,6 +30,7 @@ public class GestionCartes {
 			melange.add(elem);
 		}
 		return melange;
+		//utiliser random pour recup chiffre aleatoire -> remove a cet index -> ajouter dans la nouvelle liste -> pour toutes les cartes
 	}
 	
 	public static <E> boolean verifierMelange(ArrayList<E> l1,ArrayList<E> l2 ) {

@@ -43,6 +43,7 @@ public class JeuDeCartes {
 				if (tab[i].equals(typeDeCartes[j].getCarte())) {
 					return false;
 				}
+				//rajouter verif nbexemplaires
 			}
 		}
 		return true;
