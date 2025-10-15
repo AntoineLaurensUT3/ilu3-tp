@@ -23,6 +23,10 @@ public class Borne extends Carte {
 		}
 		return false;
 	}
+
+	public int getKm() {
+		return km;
+	}
 	
 	
 

@@ -1,12 +1,13 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 import cartes.Carte;
 import java.util.Random;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
+
 
 public class GestionCartes {
 
@@ -62,7 +63,23 @@ public class GestionCartes {
 	}
 	
 	public static <E> boolean verifierRassemblement(ArrayList<E> l){
-		
+		for(Iterator<E> iter = l.iterator(); iter.hasNext();) {
+			E elemCourant = iter.next();
+			E elemSuivant = iter.next();
+			if(!(elemCourant.equals(elemSuivant))) {
+				for(Iterator<E> iter2 = l.iterator(); iter2.hasNext();) {
+					while(!(iter2.next().equals(elemSuivant))) {
+						iter2.next();
+					}
+					E aComparer = iter2.next();
+					if(aComparer.equals(elemCourant)) {
+						return false;
+					}
+				}
+			}
+						
+		}
+		return true;
 	}
 	
 	
