@@ -115,4 +115,20 @@ public class ZoneDeJeu {
 		}
 	}
 	
+	public boolean estDepotAutorise(Carte carte) {
+		if(carte instanceof Bataille) {
+			return estDepotBatailleAutorise((Bataille) carte);
+		}
+		else if(carte instanceof Borne) {
+			return estDepotBorneAutorise((Borne) carte);
+		}
+		
+		else if(carte instanceof Limite) {
+			return  estDepotLimiteAutorise((Limite) carte);
+		}
+		else {
+			return false;
+		}
+	}
+	
 }
