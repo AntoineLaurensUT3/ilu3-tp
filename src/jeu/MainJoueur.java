@@ -11,6 +11,10 @@ public class MainJoueur {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public ArrayList<Carte> getMain() {
+		return main;
+	}
+
 	public void prendre(Carte carte) {
 		main.add(carte);
 	}

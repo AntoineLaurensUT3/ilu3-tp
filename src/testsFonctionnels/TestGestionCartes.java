@@ -12,11 +12,11 @@ import utils.GestionCartes;
 public class TestGestionCartes {
 	public static void main(String[] args) {
 		JeuDeCartes jeu = new JeuDeCartes();
-		List<Carte> listeCarteNonMelangee = new LinkedList<>();
+		LinkedList<Carte> listeCarteNonMelangee = new LinkedList<>();
 		for (Carte carte : jeu.donnerCartes()) {
 		listeCarteNonMelangee.add(carte);
 		}
-		List<Carte> listeCartes = new ArrayList<>(listeCarteNonMelangee);
+		ArrayList<Carte> listeCartes = new ArrayList<>(listeCarteNonMelangee);
 		System.out.println(listeCartes);
 		listeCartes = GestionCartes.melanger(listeCartes);
 		System.out.println(listeCartes);
